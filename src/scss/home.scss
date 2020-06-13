@@ -1,0 +1,50 @@
+.MuiContainer-root {
+    margin-left: unset !important;
+    margin-right: unset !important;
+    &.main-content {
+        display: flex;
+        
+        .hero-section {
+            position: sticky !important;
+            flex-basis: 30%;
+            background-color: #320724;
+            height: 100vh;
+            top: 0;
+        
+            .search-section {
+                position: relative;
+                padding-top: 100px;
+                
+                .search-field {
+                        background-color: #320724 !important;
+
+                        input {
+                            background-color: #FFFFFF !important;
+                        }
+                }
+            }
+            .title-section {
+                text-align: center;
+                color: #FFFFFF;
+                padding-top: 100px;
+            }
+        }
+
+        .results-section {
+            flex-basis: 70%;
+            background-color: #000000;
+            color: #FFFFFF;
+            .MuiTypography-h4 {
+                text-align: center;
+                margin-top: 50px;
+            }
+
+            .drinks-section {
+                display: grid;
+                grid-template-columns: auto auto auto auto;
+                padding-bottom: 10px;
+            }
+        }
+    }
+
+}

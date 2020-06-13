@@ -40,7 +40,7 @@ const HeroSection = ({
                 <TextField 
                     fullWidth
                     variant="outlined"
-                    placeholder="Search for a drink."
+                    placeholder="Search for a drink. ie Vodka"
                     className="search-field"
                     value={searchQuery}
                     onChange={(e) => onSearchChange(e)}

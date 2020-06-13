@@ -49,7 +49,7 @@ class Home extends Component {
                 />
                 <ResultsSection 
                     isLoading={loading} 
-                    searchResults={searchResults.length > 0 ? searchResults : drinks}
+                    searchResults={(searchResults || []).length > 0 ? (searchResults || []) : drinks}
                 />
             </Container>
         );

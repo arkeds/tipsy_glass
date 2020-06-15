@@ -9,6 +9,7 @@ import ResultsSection from 'components/ResultsSection';
 class Home extends Component {
 
     state = {
+        defaultDrink: 'margarita',
         enterKey: 13,
         searchQuery: '',
         drinks: [],
@@ -59,7 +60,7 @@ class Home extends Component {
         this.setState({
             loading: true,
         });
-        const drinks = await CocktailService.getCocktails();
+        const drinks = await CocktailService.search(this.state.defaultDrink);
         this.setState({
             drinks: drinks,
             loading: false,

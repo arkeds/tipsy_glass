@@ -2,8 +2,6 @@ import React from 'react';
 import {getIngredients} from 'utils/beverage';
 import {
     Container,
-    Typography,
-    
 } from '@material-ui/core'
 import ResultsSkeleton from 'components/Skeletons/ResultsSkeleton';
 import BeverageCard from 'components/BeverageCard';
@@ -20,18 +18,19 @@ class ResultsSection extends React.Component {
         const { searchResults, isLoading} = this.props
         return (
             <Container
+                maxWidth="xl"
                 disableGutters
                 className="results-section"
                 component="section"
             >
                 
-                <Typography variant="h4">
+                {/* <Typography variant="h4">
                     Alcohol Mixes
-                </Typography>
+                </Typography> */}
                 <Container
+                    maxWidth="lg"
                     className="drinks-section"
                     component="section"
-                    maxWidth="xl"
                 >
                     {   isLoading 
                             ? (<ResultsSkeleton/>) 

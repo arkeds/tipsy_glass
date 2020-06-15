@@ -8,10 +8,6 @@ import {
     Button,
     Paper,
     CardContent,
-    ListItem,
-    List,
-    ListItemText,
-    Divider,
     Typography
 } from '@material-ui/core';
 import {Skeleton} from '@material-ui/lab';
@@ -38,14 +34,13 @@ const ProductCard = ({
     return (
         <Paper
             key={id}
-            style={{
-                'margin': '5px',
-                'maxWidth': '400px'
-            }}
-           elevation={3}
+            elevation={3}
+            className="beverage-card-wrapper"
         >
+           
             <CardActionArea>
                 <CardHeader
+                    className="beverage-header"
                     title={name}
                     subheader={category}
                 />
@@ -65,57 +60,42 @@ const ProductCard = ({
                     )
                 }
             </CardActionArea>
-            <CardContent
-                style={{
-                    
-                    display: visibleInfo === 'INGREDIENTS' ? 'block' : 'none'
-                }}
-            >
-                <List disablePadding>
-                    <ListItem selected>
-                        <ListItemText primary={'Ingredients'} />
-                    </ListItem>
-                    <Divider/>
-                    {
-                        (ingredients || []).map((item, index) => (
-                            <React.Fragment>
-                                <ListItem key={index} style={{padding: '0px !important'}}>
-                                    <ListItemText primary={item} />
-                                </ListItem>
-                                <Divider/>
-                            </React.Fragment>
-                        ))
-                    }
-                </List>
-            </CardContent>
-            <CardContent
-                style={{
-                    minHeight: '150px',
-                    display: visibleInfo === 'INSTRUCTIONS' ? 'block' : 'none'
-                }}
-            >
-                <Typography gutterBottom variant="h6" component="h2">
-                    Instrunctions
-                </Typography>
-                <Typography variant="body2" color="textSecondary" component="p">
-                    {instructions}
-                </Typography>
-            </CardContent>
-            <CardActions>
-                {
-                    ingredients.length > 0 && (
-                        <Button size="small" color="primary" onClick={() => handleVisibility('INGREDIENTS')}>
+                
+            {
+                visibleInfo === 'INGREDIENTS' && (
+                    <CardContent className="beverage-content">
+                        <Typography gutterBottom variant="h6" component="label">
                             Ingredients
-                        </Button>
-                    )
-                }
-                {
-                    instructions && (
-                        <Button className="active" size="small" color="primary" onClick={() => handleVisibility('INSTRUCTIONS')}>
+                        </Typography>
+                        <ul className="ingredients-list">
+                            {
+                                (ingredients || []).map(ingredient => (
+                                    <li key={ingredient}>{ingredient}</li>
+                                ))
+                            }
+                        </ul>
+                    </CardContent>
+                )
+            }
+            {
+                visibleInfo === 'INSTRUCTIONS' && ( 
+                    <CardContent className="beverage-content">
+                        <Typography gutterBottom variant="h6" component="h2">
                             Instructions
-                        </Button>
-                    )
-                }
+                        </Typography>
+                        <Typography variant="body2" color="textSecondary" component="p">
+                            {instructions}
+                        </Typography>
+                    </CardContent>
+                )
+            }
+            <CardActions>
+                <Button size="small" color="primary" onClick={() => handleVisibility('INGREDIENTS')}>
+                    Ingredients
+                </Button>
+                <Button className="active" size="small" color="primary" onClick={() => handleVisibility('INSTRUCTIONS')}>
+                    Instructions
+                </Button>
             </CardActions>
         </Paper>
     )

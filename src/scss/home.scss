@@ -1,37 +1,32 @@
 .MuiContainer-root {
-    margin-left: unset !important;
-    margin-right: unset !important;
     &.main-content {
-        display: flex;
-        
         .hero-section {
-            position: sticky !important;
-            flex-basis: 30%;
             background-color: #320724;
-            height: 100vh;
+            position: sticky;
             top: 0;
-        
+            z-index: 2000;
+
             .search-section {
                 position: relative;
-                padding-top: 100px;
+                padding-top: 20px;
+                padding-bottom: 10px;
                 
                 .search-field {
-                        background-color: #320724 !important;
+                    background-color: #320724 !important;
 
-                        input {
-                            background-color: #FFFFFF !important;
-                        }
+                    input {
+                        background-color: #FFFFFF !important;
+                    }
                 }
             }
             .title-section {
                 text-align: center;
                 color: #FFFFFF;
-                padding-top: 100px;
+                padding-top: 10px;
             }
         }
 
         .results-section {
-            flex-basis: 70%;
             background-color: #000000;
             color: #FFFFFF;
             .MuiTypography-h4 {
@@ -40,9 +35,36 @@
             }
 
             .drinks-section {
-                display: grid;
-                grid-template-columns: auto auto auto auto;
-                padding-bottom: 10px;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+
+                .beverage-card-wrapper {
+                    margin: 5px;
+                    max-width: 330px;
+                    min-width: 250px;
+                    .beverage-header {
+                        .MuiCardHeader-title.MuiTypography-h5 {
+                            font-size: 1.25rem !important;
+                        }
+                    }
+                    .beverage-content {
+                        padding-top: 0px;
+                        min-height: 134px;
+                        width: 300px;
+                        .ingredients-list {
+                            padding-left: 15px;
+                        }
+                    }
+                }
+
+                .beverage-card-skeleton {
+                    width: 330px;
+                    min-width: 250px;
+                    margin: 5px;
+                }
+                
             }
         }
     }

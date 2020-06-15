@@ -14,10 +14,12 @@ const HeroSection = ({
     return (
         <Container
             disableGutters
+            maxWidth="xl"
             className="hero-section"
             component="section"
         >
             <Container
+                disableGutters
                 maxWidth="md"
                 component="section"
                 className="title-section"
@@ -26,7 +28,7 @@ const HeroSection = ({
                 <Typography variant="h3">
                     Tipsy Glass
                 </Typography>
-                <Typography variant="h6">
+                <Typography variant="body2">
                     Learn how to make popular alchol mixes.
                 </Typography>
             </Container>
